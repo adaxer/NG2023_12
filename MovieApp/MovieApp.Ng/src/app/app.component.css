@@ -1,6 +1,13 @@
-mat-nav-list {
-  position: absolute;
-  top: 50px; /* Adjust based on your layout */
-  left: 0;
-  z-index: 1000; /* Ensure it's above other content */
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-form-field {
+  margin-right: 20px;
+  margin-top:22px;
 }
