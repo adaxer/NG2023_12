@@ -11,3 +11,7 @@ mat-form-field {
   margin-right: 20px;
   margin-top:22px;
 }
+
+.button-active {
+  font-weight: bold;
+}

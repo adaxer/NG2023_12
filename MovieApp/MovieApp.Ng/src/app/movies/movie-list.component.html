@@ -1,0 +1,10 @@
+<div *ngIf="movies">
+  <mat-list>
+    <mat-list-item *ngFor="let movie of movies" >
+      <span matListItemTitle>{{ movie.info }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
+<!-- <div *ngIf="isBusy()">
+  <mat-spinner color="#AAAAFF" ></mat-spinner>
+</div> -->
