@@ -10,6 +10,9 @@ export class MovieService {
 
   getMoviePage(pageSize: number, pageNo: number) : Movie[]
   {
-    return [{id:1, title: "Starwars", info:" (George Lucas)"}];
+    return [
+      {id:1, title: "Starwars", info:"Starwars (George Lucas)"},
+      {id:2, title: "Blade Runner", info:"Blade Runner (Ridley Scott)"}
+    ];
   }
 }
