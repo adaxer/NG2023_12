@@ -1,9 +1,12 @@
 <mat-toolbar color="primary">
   <span>My Application</span>
+  <button mat-button routerLink="/welcome">Welcome</button>
+
   <span class="spacer"></span>
-  <mat-form-field >
+  <mat-form-field>
     <mat-label>Search</mat-label>
     <input matInput>
   </mat-form-field>
   <button mat-button routerLink="/login">Login</button>
-</mat-toolbar><router-outlet></router-outlet>
+</mat-toolbar>
+<router-outlet></router-outlet>
