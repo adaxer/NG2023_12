@@ -1,10 +1,16 @@
-<div *ngIf="movies">
+<div>
   <mat-list>
-    <mat-list-item *ngFor="let movie of movies" >
-      <span matListItemTitle>{{ movie.info }} routerLink="/movie/{{movie.id}}"  </span>
+    @for (movie of movies; track movie) {
+    <mat-list-item>
+      <span matListItemTitle>{{ movie.info }} routerLink='/movie/{{movie.id}}' </span>
     </mat-list-item>
+    }
+    @empty {
+    <div>Keine Daten vorhanden</div>
+    }
   </mat-list>
 </div>
+
 <!-- <div *ngIf="isBusy()">
   <mat-spinner color="#AAAAFF" ></mat-spinner>
 </div> -->

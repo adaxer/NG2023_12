@@ -7,4 +7,5 @@ export const routes: Routes = [
   { path: '', component: WelcomeComponent},
   { path: 'welcome', component: WelcomeComponent},
   { path: 'movies', component: MovieListComponent},
+  { path: 'movie/:id', component: MovieListComponent},
 ];
