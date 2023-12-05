@@ -1,8 +1,8 @@
 <div>
   <mat-list>
     @for (movie of movies; track movie) {
-    <mat-list-item>
-      <span matListItemTitle>{{ movie.info }} routerLink='/movie/{{movie.id}}' </span>
+    <mat-list-item [routerLink]="['/movie', movie.id]">
+      <span matListItemTitle>{{ movie.info }} </span>
     </mat-list-item>
     }
     @empty {

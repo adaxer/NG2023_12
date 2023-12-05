@@ -15,4 +15,8 @@ export class MovieService {
       {id:2, title: "Blade Runner", info:"Blade Runner (Ridley Scott)"}
     ];
   }
+
+  getMovieDetails(id: number) : Movie {
+    return {id:1, title: "Starwars", info:"Starwars (George Lucas)"};
+  }
 }
