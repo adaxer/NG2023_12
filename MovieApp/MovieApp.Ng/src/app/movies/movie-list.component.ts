@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from './movie.service';
-import { Movie } from '../models/movie';
+import { MovieInfo } from '../models/movie-info';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { RouterModule } from '@angular/router';
@@ -13,12 +13,15 @@ import { RouterModule } from '@angular/router';
   styles: ``
 })
 export class MovieListComponent implements OnInit {
-  movies?: Movie[];
+  movies?: MovieInfo[];
 
   constructor(private service: MovieService){
   }
 
   ngOnInit(): void {
-    this.movies = this.service.getMoviePage(10, 0);
+    this.service.getMoviePage(10, 0).subscribe(page => {
+      console.log(page);
+      this.movies = page.data;
+    });
   }
 }

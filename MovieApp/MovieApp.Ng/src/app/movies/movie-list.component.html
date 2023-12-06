@@ -2,7 +2,7 @@
   <mat-list>
     @for (movie of movies; track movie) {
     <mat-list-item [routerLink]="['/movie', movie.id]">
-      <span matListItemTitle>{{ movie.info }} </span>
+      <span matListItemTitle>{{ movie.description }} </span>
     </mat-list-item>
     }
     @empty {
