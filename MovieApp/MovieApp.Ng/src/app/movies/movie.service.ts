@@ -3,6 +3,7 @@ import { MovieInfo } from '../models/movie-info';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResultPage } from '../models/result-page';
+import { Movie } from '../models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ baseUrl = "https://localhost:7267";
     return this.http.get<ResultPage<MovieInfo>>(`${this.baseUrl}/movies/list/${pageSize}/${pageNo}`);
   }
 
-  getMovieDetails(id: number): MovieInfo {
-    return { id: 1, description: "Starwars (George Lucas)" };
+  getMovieDetails(id: number): Observable<Movie> {
+    return this.http.get<Movie>(`${this.baseUrl}/movies/${id}`);
   }
 }

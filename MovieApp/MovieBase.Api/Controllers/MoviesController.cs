@@ -49,6 +49,7 @@ public class MoviesController : ControllerBase
     [Produces(MediaTypeNames.Application.Json, MediaTypeNames.Application.Xml)]
     public async Task<IActionResult> One(int id)
     {
+        await Task.Delay(1500);
         var data = await _context.Movies.FindAsync(id);
         return data == null
             ? NotFound()
