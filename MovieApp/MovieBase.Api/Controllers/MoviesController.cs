@@ -12,7 +12,7 @@ using System.Net.Mime;
 namespace MovieBase.Api.Controllers;
 [ApiController]
 [Route("[controller]")]
-//[EnableCors("CorsPolicy")]
+[EnableCors("CorsPolicy")]
 //[Authorize]
 public class MoviesController : ControllerBase
 {
