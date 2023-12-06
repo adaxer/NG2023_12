@@ -15,6 +15,4 @@ export class LedComponent {
     this.color = this.baseColor;
     this.colorChanged.emit(this.color);
   }
-
-  url = "https://jdslkfa";
 }

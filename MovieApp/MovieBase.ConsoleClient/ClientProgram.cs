@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
-using MovieBase.ClientLib;
+﻿using MovieBase.ClientLib;
 using MovieBase.Common;
 using MovieBase.Common.Interfaces;
-using System.Net.Http.Json;
 
 namespace MovieBase.ConsoleClient;
 
