@@ -1,1 +1,2 @@
 <p>{{'Willkommen bei MovieApp!' | decorate : Weekdays.Monday : Weekdays.Wednesday }}</p>
+<app-led [color]="ledColor" (colorChanged)="componentChanged($event)"></app-led>
