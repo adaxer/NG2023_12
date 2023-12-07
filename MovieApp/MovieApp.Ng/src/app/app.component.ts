@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { SignalRService } from './services/signal-r.service';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,8 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'MovieApp.Ng';
+
+  constructor(signalR: SignalRService){
+    signalR.startConnection();
+  }
 }

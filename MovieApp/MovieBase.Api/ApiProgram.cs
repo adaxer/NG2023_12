@@ -67,7 +67,7 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllers();
-        //app.MapHub<MessageHub>("/messages");
+        app.MapHub<MessageHub>("/messages");
 
         app.MapIdentityApi<IdentityUser>();
 
