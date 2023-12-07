@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,21 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   styles: ``
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
   form!: FormGroup;
   isDirty = false;
 
-  email?: string;
+  email?: string = "Test@test.de";
   password?: string;
+  isRegistered: boolean = false;
+
+  get canRegister(): boolean {
+    return this.form.valid;
+  }
+
+  get canLogin(): boolean {
+    return this.form.valid && this.isRegistered;
+  }
 
   ngOnInit() {
     // https://stackoverflow.com/questions/70106472/property-fname-comes-from-an-index-signature-so-it-must-be-accessed-with-fn
@@ -24,7 +34,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  checkForm(): boolean {
     this.form.markAllAsTouched();
     if (this.form.valid) {
       this.email = this.form.value.email;
@@ -34,5 +44,20 @@ export class LoginComponent implements OnInit {
     } else {
       console.log('Form is invalid!');
     }
+    return this.form.valid;
+  }
+
+  tryRegister() {
+    if (!this.checkForm()) {
+      return;
+    }
+    this.userService.register(this.email!, this.password!).subscribe(b => this.isRegistered = b);
+  }
+
+  tryLogin() {
+    if (!this.checkForm()) {
+      return;
+    }
+    this.userService.login(this.email!, this.password!).subscribe(b => this.isDirty = !b);
   }
 }
