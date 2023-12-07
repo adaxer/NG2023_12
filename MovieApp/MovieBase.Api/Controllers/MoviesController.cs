@@ -13,7 +13,7 @@ namespace MovieBase.Api.Controllers;
 [ApiController]
 [Route("[controller]")]
 [EnableCors("CorsPolicy")]
-//[Authorize]
+[Authorize]
 public class MoviesController : ControllerBase
 {
     private readonly ILogger<MoviesController> _logger;

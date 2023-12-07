@@ -1,0 +1,6 @@
+@WinAuthApi_HostAddress = http://localhost:5094
+
+GET {{WinAuthApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

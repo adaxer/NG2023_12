@@ -29,6 +29,7 @@ public class Program
             .UseSqlite("Data Source=./movies.db")
             .EnableSensitiveDataLogging()
             .LogTo(Console.WriteLine));
+
         builder.Services.AddDbContext<UsersContext>(o=>o.UseInMemoryDatabase("users.db"));
 
         builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<UsersContext>();
@@ -63,12 +64,12 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseCors("CorsPolicy");
-        //app.UseAuthorization();
+        app.UseAuthorization();
 
         app.MapControllers();
         //app.MapHub<MessageHub>("/messages");
 
-        //app.MapIdentityApi<IdentityUser>();
+        app.MapIdentityApi<IdentityUser>();
 
         app.Run();
     }

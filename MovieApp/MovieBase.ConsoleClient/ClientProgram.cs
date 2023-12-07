@@ -13,6 +13,11 @@ internal class Program
     {
         try
         {
+            Console.WriteLine("Rest");
+            Console.ReadLine();
+            var restClient = new MovieApp.Rest.Client("https://localhost:7267", new HttpClient());
+            await restClient.MovieListAsync(20, 4);
+
             Console.Write("Not found");
             Console.ReadLine();
             var result = await new HttpClient().GetAsync("https://localhost:7267/something");
