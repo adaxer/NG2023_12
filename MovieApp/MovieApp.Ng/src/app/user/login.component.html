@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="email">First Name:</label>
+    <input id="email" type="text" formControlName="email">
+    @if (form.controls['email'].errors?.['required'] && form.controls['email'].touched) {
+      <div>
+        First Name is required.
+      </div>
+    }
+  </div>
+
+  <div>
+    <label for="password">Last Name:</label>
+    <input id="password" type="password" formControlName="password">
+@if(form.controls['password'].errors?.['required'] && form.controls['password'].touched){
+    <div >
+      Last Name is required.
+    </div>
+  }
+  </div>
+
+  <button type="submit">Submit</button>
+
+</form>
