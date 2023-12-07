@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from './user.service';
+import { CanBeDirty } from '../models/can-be-dirty';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,16 @@ import { UserService } from './user.service';
   templateUrl: './login.component.html',
   styles: ``
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, CanBeDirty {
   constructor(private fb: FormBuilder, private userService: UserService) { }
   form!: FormGroup;
-  isDirty = false;
+  get isDirty(): boolean
+  {
+    if(this.form.invalid && this.form.touched) {
+      return true;
+    }
+    return false;
+  }
 
   email?: string = "Test@test.de";
   password?: string;
@@ -40,7 +47,6 @@ export class LoginComponent implements OnInit {
       this.email = this.form.value.email;
       this.password = this.form.value.password;
       console.log('Form is Submitted!', this.form.value);
-      this.isDirty = true;
     } else {
       console.log('Form is invalid!');
     }
@@ -58,6 +64,8 @@ export class LoginComponent implements OnInit {
     if (!this.checkForm()) {
       return;
     }
-    this.userService.login(this.email!, this.password!).subscribe(b => this.isDirty = !b);
+    this.userService.login(this.email!, this.password!).subscribe(b => {
+      console.log("Successful login? ", b);
+    });
   }
 }
